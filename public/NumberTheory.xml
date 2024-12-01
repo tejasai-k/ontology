@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:nt="http://example.org/number-theory#">
+
+  <!-- Ontology Header -->
+  <owl:Ontology rdf:about="http://example.org/number-theory">
+    <rdfs:comment>Ontology for classifying numbers into rational, irrational, terminating decimals, non-terminating decimals, whole numbers, natural numbers, prime numbers, and composite numbers.</rdfs:comment>
+    <rdfs:label>Number Theory Ontology</rdfs:label>
+  </owl:Ontology>
+
+  <!-- Classes -->
+  <owl:Class rdf:about="http://example.org/number-theory#Number">
+    <rdfs:label>Number</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#RationalNumber">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#Number"/>
+    <rdfs:label>Rational Number</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#IrrationalNumber">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#Number"/>
+    <rdfs:label>Irrational Number</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#TerminatingDecimal">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#RationalNumber"/>
+    <rdfs:label>Terminating Decimal</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#NonTerminatingDecimal">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#RationalNumber"/>
+    <rdfs:label>Non-Terminating Decimal</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#WholeNumber">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#Number"/>
+    <rdfs:label>Whole Number</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#NaturalNumber">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#WholeNumber"/>
+    <rdfs:label>Natural Number</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#NegativeNumber">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#Number"/>
+    <rdfs:label>Negative Number</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#Zero">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#WholeNumber"/>
+    <rdfs:label>Zero</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#PrimeNumber">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#NaturalNumber"/>
+    <rdfs:label>Prime Number</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/number-theory#CompositeNumber">
+    <rdfs:subClassOf rdf:resource="http://example.org/number-theory#NaturalNumber"/>
+    <rdfs:label>Composite Number</rdfs:label>
+  </owl:Class>
+
+  <!-- Data Properties -->
+  <owl:DatatypeProperty rdf:about="http://example.org/number-theory#hasValue">
+    <rdfs:domain rdf:resource="http://example.org/number-theory#Number"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label>has Value</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- Instances -->
+  <!-- Rational Numbers -->
+  <nt:RationalNumber rdf:about="http://example.org/number-theory#Half">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</nt:hasValue>
+  </nt:RationalNumber>
+  <nt:RationalNumber rdf:about="http://example.org/number-theory#OneThird">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.333</nt:hasValue>
+  </nt:RationalNumber>
+
+  <!-- Irrational Numbers -->
+  <nt:IrrationalNumber rdf:about="http://example.org/number-theory#Pi">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.14159</nt:hasValue>
+  </nt:IrrationalNumber>
+  <nt:IrrationalNumber rdf:about="http://example.org/number-theory#SqrtTwo">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.414213</nt:hasValue>
+  </nt:IrrationalNumber>
+
+  <!-- Terminating Decimals -->
+  <nt:TerminatingDecimal rdf:about="http://example.org/number-theory#Quarter">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.25</nt:hasValue>
+  </nt:TerminatingDecimal>
+  <nt:TerminatingDecimal rdf:about="http://example.org/number-theory#ThreeFourth">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.75</nt:hasValue>
+  </nt:TerminatingDecimal>
+
+  <!-- Non-Terminating Decimals -->
+  <nt:NonTerminatingDecimal rdf:about="http://example.org/number-theory#RepeatingThree">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.333</nt:hasValue>
+  </nt:NonTerminatingDecimal>
+
+  <!-- Whole Numbers -->
+  <nt:WholeNumber rdf:about="http://example.org/number-theory#Zero">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</nt:hasValue>
+  </nt:WholeNumber>
+  <nt:WholeNumber rdf:about="http://example.org/number-theory#One">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</nt:hasValue>
+  </nt:WholeNumber>
+
+  <!-- Prime Numbers -->
+  <nt:PrimeNumber rdf:about="http://example.org/number-theory#Two">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</nt:hasValue>
+  </nt:PrimeNumber>
+  <nt:PrimeNumber rdf:about="http://example.org/number-theory#Three">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</nt:hasValue>
+  </nt:PrimeNumber>
+
+  <!-- Composite Numbers -->
+  <nt:CompositeNumber rdf:about="http://example.org/number-theory#Four">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</nt:hasValue>
+  </nt:CompositeNumber>
+  <nt:CompositeNumber rdf:about="http://example.org/number-theory#Six">
+    <nt:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</nt:hasValue>
+  </nt:CompositeNumber>
+
+</rdf:RDF>
